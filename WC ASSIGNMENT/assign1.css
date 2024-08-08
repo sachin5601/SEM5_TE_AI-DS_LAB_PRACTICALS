@@ -1,0 +1,40 @@
+/* styles.css */
+/* 1. Webpage will have the background image "img1.jpg" */
+body {
+    background-image: url('image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-weight: bold;
+    color: black; /* Ensuring text is black */
+}
+/* 2. The table heading will have a background color */
+table th {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white for contrast */
+    color: black; /* Black text for readability */
+    border: 2px double black; /* Double line border */
+}
+/* Styling the table rows and cells */
+table td {
+    color: black; /* Black text for readability */
+    border: 2px double black; /* Double line border */
+}
+/* 3. Background color of alternate paragraphs are different */
+p:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: black; /* Black text for readability */
+}
+p:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
+    color: black; /* Black text for readability */
+}
+/* 4. The hyperlink on the webpage will not have underline */
+a {
+    text-decoration: none;
+    color: black; /* Black color for the hyperlink */
+}
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders do not have gaps */
+}

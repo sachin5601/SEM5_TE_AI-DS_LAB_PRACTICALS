@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Alumni Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: black;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>ALUMNI INFORMATION FORM</h1>
+    <form id="alumniForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div class="error" id="nameError"></div>        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+        <div class="error" id="addressError"></div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <div class="error" id="dobError"></div>       
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error" id="emailError"></div>
+        <label>Hobbies:</label>
+        <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+        <label><input type="checkbox" name="hobbies" value="Traveling"> Traveling</label>
+        <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+        
+        <label>Branch:</label>
+        <label><input type="radio" name="branch" value="AI" required> Artificial Intelligence and Data Science</label>
+        <label><input type="radio" name="branch" value="CSE" required> Computer Science</label>
+        <label><input type="radio" name="branch" value="ECE" required> Electronics</label>
+        <label><input type="radio" name="branch" value="ME" required> Mechanical</label>
+        <button type="submit">Submit</button>
+        <div class="error" id="formError"></div>
+    </form>
+</div>
+<script>
+    document.getElementById('alumniForm').addEventListener('submit', function(event) {
+        let formValid = true;
+        let errorMessage = '';
+        // Name validation
+        const name = document.getElementById('name').value;
+        if (name.trim() === '') {
+            formValid = false;
+            errorMessage += 'Name is required.\n';
+        }
+        // Address validation
+        const address = document.getElementById('address').value;
+        if (address.trim() === '') {
+            formValid = false;
+            errorMessage += 'Address is required.\n';
+        }
+
+        // Date of Birth validation
+        const dob = document.getElementById('dob').value;
+        const dobDate = new Date(dob);
+        const age = new Date().getFullYear() - dobDate.getFullYear();
+        if (dob.trim() === '') {
+            formValid = false;
+            errorMessage += 'Date of Birth is required.\n';
+        } else if (age < 22) {
+            formValid = false;
+            errorMessage += 'Age must be at least 22 years.\n';
+        }
+        // Email validation
+        const email = document.getElementById('email').value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (email.trim() === '') {
+            formValid = false;
+            errorMessage += 'Email ID is required.\n';
+        } else if (!emailPattern.test(email)) {
+            formValid = false;
+            errorMessage += 'Invalid email ID.\n';
+        }
+        // Display error messages if form is invalid
+        if (!formValid) {
+            event.preventDefault();
+            document.getElementById('formError').innerText = errorMessage;
+        } else {
+            document.getElementById('formError').innerText = '';
+        }
+    });
+</script>
+
+</body>
+</html>
