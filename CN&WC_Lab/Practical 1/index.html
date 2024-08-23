@@ -4,46 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML First Practical</title>
+    
 </head>
 <body>
     
-    <h1>This is a Heading Tag.The &lth1&gt element defines a heading. </h1>
-    <p>This is paragraph tag.The &ltp&gt element defines a paragraph. </p>
+    <h1>This is a Heading Tag. The &lt;h1&gt; element defines a heading. </h1>
+    <p>This is paragraph tag. The &lt;p&gt; element defines a paragraph. </p>
 
-   <h1> HTML Attributes </h1>
-<p>1) All HTML elements can have attributes<br>
-2) Attributes provide additional information about elements<br>
-3) Attributes are always specified in the start tag<br>
-4) Attributes usually come in name/value pairs like: name="value"<br>
-</p>
-<h2>The href Attribute</h2>
-<p>The &lta&gt tag defines a hyperlink. The href attribute specifies the URL of the page the link goes to:</p>
-<a href="https://www.w3schools.com">Visit W3Schools</a>
+    <h1>HTML Attributes</h1>
+    <p>1) All HTML elements can have attributes<br>
+    2) Attributes provide additional information about elements<br>
+    3) Attributes are always specified in the start tag<br>
+    4) Attributes usually come in name/value pairs like: name="value"<br>
+    </p>
 
-<h1>The src Attribute</h1>
-    <p>The &ltimg&gt tag is used to embed an image in an HTML page. The src attribute specifies the path to the image to be displayed:</p>
-    <img src="ram.jpg">
-    <h2>The width and height Attributes</h2>
-</p> The &ltimg&gt tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):</p>
-<img src="ram.png" width="500" height="600">
-<h2>The style Attribute</h2>
-<p>The style attribute is used to add styles to an element, such as color, font, size, and more.</p>
-<p style="color:red;">This is a red paragraph.</p>
+    <h2>The href Attribute</h2>
+    <p>The &lt;a&gt; tag defines a hyperlink. The href attribute specifies the URL of the page the link goes to:</p>
+    <a href="https://www.w3schools.com">Visit W3Schools</a>
 
-<h1>HTML Text Formatting</h1>
-<p>Formatting elements were designed to display special types of text:<br>
+    <h2>The src Attribute</h2>
+    <p>The &lt;img&gt; tag is used to embed an image in an HTML page. The src attribute specifies the path to the image to be displayed:</p>
+    <img src="ram.jpg" alt="Example Image">
 
-        &ltb&gt-      Bold text<br>
-        &ltstrong&gt -Important text<br>
-        &lti&gt -     Italic text<br>
-        &ltem&gt -    Emphasized text<br>
-        &ltmark&gt -  Marked text<br>
-        &ltsmall&gt - Smaller text<br>
-        &ltdel&gt -   Deleted text<br>
-        &ltins&gt -   Inserted text<br>
-        &ltsub&gt -   Subscript text<br>
-        &ltsup&gt -   Superscript text</p>
-    
+    <h3>The width and height Attributes</h3>
+    <p>The &lt;img&gt; tag should also contain the width and height attributes, which specify the width and height of the image (in pixels):</p>
+    <img src="ram.png" width="500" height="600" alt="Example Image with dimensions">
+
+    <h3>The style Attribute</h3>
+    <p>The style attribute is used to add styles to an element, such as color, font, size, and more.</p>
+    <p style="color:red;">This is a red paragraph.</p>
+
+    <h1>HTML Text Formatting</h1>
+    <p>Formatting elements were designed to display special types of text:<br>
+        &lt;b&gt; - Bold text<br>
+        &lt;strong&gt; - Important text<br>
+        &lt;i&gt; - Italic text<br>
+        &lt;em&gt; - Emphasized text<br>
+        &lt;mark&gt; - Marked text<br>
+        &lt;small&gt; - Smaller text<br>
+        &lt;del&gt; - Deleted text<br>
+        &lt;ins&gt; - Inserted text<br>
+        &lt;sub&gt; - Subscript text<br>
+        &lt;sup&gt; - Superscript text
+    </p>
+
     <b>This text is bold</b><br>
     <strong>This text is important!</strong><br>
     <i>This text is italic</i><br>
@@ -58,6 +62,7 @@
     <h1>HTML Tables</h1>
     <p>HTML tables allow web developers to arrange data into rows and columns.</p>
     <p>A table in HTML consists of table cells inside rows and columns.</p>
+
     <table>
         <tr>
           <th>Roll No.</th>
@@ -74,87 +79,106 @@
           <td>Pareenita</td>
           <td>SE-AI&DS</td>
         </tr>
-        
-      </table>
-    
-      <h2>Table Headers</h2>
-      <p>Sometimes you want your cells to be table header cells. In those cases use the &ltth&gt tag instead of the &lttd&gt tag:<br> th stands for table header.</p>
-      <h2>Table Cells</h2>
-      <p>  Each table cell is defined by a &lttd&gt and a &lt/td&gt tag.<br>td stands for table data.<br> Everything between &lttd&gt and &lt/td&gt are the content of the table cell.</p>
-      <h2>Table Rows</h2>
-       <p> Each table row starts with a &lttr&gt and ends with a &lt/tr&gt tag.<br> tr stands for table row.</p>
-     <h2>HTML Table Borders</h2>
-     <p>HTML tables can have borders of different styles and shapes.<br> To add a border, use the CSS border property on table, th, and td elements:</p>
-    
-     <h1>HTML Lists</h1>
-     <p>HTML lists allow web developers to group a set of related items in lists.</P>
-      <h2>Unordered HTML List<h2></h2>
-        <p>An unordered list starts with the &ltul&gt tag. Each list item starts with the &ltli&gt tag.
-        
-       <br> The list items will be marked with bullets (small black circles) by default:</p>
-       <ul>
+    </table>
+
+    <h2>Table Headers</h2>
+    <p>Sometimes you want your cells to be table header cells. In those cases use the &lt;th&gt; tag instead of the &lt;td&gt; tag: th stands for table header.</p>
+
+    <h2>Table Cells</h2>
+    <p>Each table cell is defined by a &lt;td&gt; and a &lt;/td&gt; tag. td stands for table data. Everything between &lt;td&gt; and &lt;/td&gt; are the content of the table cell.</p>
+
+    <h2>Table Rows</h2>
+    <p>Each table row starts with a &lt;tr&gt; and ends with a &lt;/tr&gt; tag. tr stands for table row.</p>
+
+    <h2>HTML Table Borders</h2>
+    <p>HTML tables can have borders of different styles and shapes. To add a border, use the CSS border property on table, th, and td elements:</p>
+
+    <table class="styled-table">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>Apples</td>
+            <td>$2</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Oranges</td>
+            <td>$3</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Bananas</td>
+            <td>$1</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <h1>HTML Lists</h1>
+    <p>HTML lists allow web developers to group a set of related items in lists.</P>
+
+    <h2>Unordered HTML List</h2>
+    <p>An unordered list starts with the &lt;ul&gt; tag. Each list item starts with the &lt;li&gt; tag. The list items will be marked with bullets (small black circles) by default:</p>
+    <ul>
         <li>Coffee</li>
         <li>Tea</li>
         <li>Milk</li>
-      </ul>
-      <h2>Ordered HTML List</h2>
-      <p>An ordered list starts with the &ltol&gt tag. Each list item starts with the &ltli&gt tag.
+    </ul>
 
-     <br> The list items will be marked with numbers by default:</p>
-     <ol>
+    <h2>Ordered HTML List</h2>
+    <p>An ordered list starts with the &lt;ol&gt; tag. Each list item starts with the &lt;li&gt; tag. The list items will be marked with numbers by default:</p>
+    <ol>
         <li>Coffee</li>
         <li>Tea</li>
         <li>Milk</li>
-      </ol>
-      <h2>HTML Description Lists </h2>
-      <p>A description list is a list of terms, with a description of each term.<br>
+    </ol>
 
-        The <dl> tag defines the description list, the &ltdt&gt tag defines the term (name), and the &ltdd&gt tag describes each term:</p>
-            <dl>
-                <dt>Coffee</dt>
-                <dd>- black hot drink</dd>
-                <dt>Milk</dt>
-                <dd>- white cold drink</dd>
-              </dl>
+    <h2>HTML Description Lists</h2>
+    <p>A description list is a list of terms, with a description of each term. The &lt;dl&gt; tag defines the description list, the &lt;dt&gt; tag defines the term (name), and the &lt;dd&gt; tag describes each term:</p>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
 
-              <h1>HTML Iframes</h1>
-              <p>An HTML iframe is used to display a web page within a web page.
+    <h1>HTML Iframes</h1>
+    <p>An HTML iframe is used to display a web page within a web page.</p>
 
-              </p>
-              <h2>HTML Iframe Syntax</h2>
-              <p>The HTML &ltiframe&gt tag specifies an inline frame.<br>
+    <h2>HTML Iframe Syntax</h2>
+    <p>The HTML &lt;iframe&gt; tag specifies an inline frame. An inline frame is used to embed another document within the current HTML document.</p>
+    <iframe src="ram.png" title="description"></iframe>
 
-                An inline frame is used to embed another document within the current HTML document.</p>
-                <iframe src="ram.png" title="description"></iframe>
-                <h2>Iframe - Set Height and Width</h2>
-                <p>Use the height and width attributes to specify the size of the iframe.<br>
-                    
+    <h2>Iframe - Set Height and Width</h2>
+    <p>Use the height and width attributes to specify the size of the iframe. The height and width are specified in pixels by default:</p>
+    <iframe src="flag.jpg" height="200" width="300" title="Iframe Example"></iframe>
 
-                    The height and width are specified in pixels by default:</p>
-                    <iframe src="flag.jpg" height="200" width="300" title="Iframe Example"></iframe>
-                    <h2>Iframe - Target for a Link</h2>
-<p>An iframe can be used as the target frame for a link.<br>
+    <h2>Iframe - Target for a Link</h2>
+    <p>An iframe can be used as the target frame for a link. The target attribute of the link must refer to the name attribute of the iframe:</p>
+    <iframe src="ram2.png" name="iframe_a" title="Iframe Example"></iframe>
+    <p><a href="practical1.html" target="iframe_a">HTML First Practical Link</a></p>
 
-The target attribute of the link must refer to the name attribute of the iframe:</p>
-
-<iframe src="ram2.png" name="iframe_a" title="Iframe Example"></iframe>
-
-<p><a href="practical1.html" target="iframe_a">HTML First Practical Link</a></p>
-
-<h1>This is a form</h1> 
+    <h1>This is a form</h1> 
     <form> 
-        <p>Name:</p> 
-        <input type="text" required> 
-        <p>Email:</p> 
-        <input type="email" required> 
-        <p>Address:</p> 
-        <input type="text" required> 
-        <p>Phone</p>
-        <input type="text" id="phone" name="phone" pattern="\d{10}" title="Please enter exactly 10 digits" required>
-        <br> 
-        <button style="margin-top: 5px;"> 
-          Submit 
-        </button> 
-    </form> 
-    </body>
+        <div class="form-group">
+            <input type="text" required placeholder=" ">
+            <label>Name</label>
+        </div>
+        <div class="form-group">
+            <input type="email" required placeholder=" ">
+            <label>Email</label>
+        </div>
+        <div class="form-group">
+            <input type="text" required placeholder=" ">
+            <label>Address</label>
+        </div>
+        <div class="form-group">
+            <input type="text" id="phone" name="phone" pattern="\d{10}" title="Please enter exactly 10 digits" required placeholder=" ">
+            <label>Phone</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
 </html>

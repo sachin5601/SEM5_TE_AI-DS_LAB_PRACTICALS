@@ -1,112 +1,95 @@
+-- Set the default database
+USE COLLEGE;
 
+-- SLICE: Filtering data based on a specific department (AI&DS)
+SELECT 
+    fe.enrollment_id, 
+    st.student_name, 
+    c.course_name, 
+    i.instructor_name, 
+    s.semester_name, 
+    fe.grade
+FROM 
+    fact_enrollments fe
+JOIN 
+    students st ON fe.student_id = st.student_id
+JOIN 
+    courses c ON fe.course_id = c.course_id
+JOIN 
+    instructors i ON fe.instructor_id = i.instructor_id
+JOIN 
+    semesters s ON fe.semester_id = s.semester_id
+JOIN 
+    departments d ON st.department_id = d.department_id
+WHERE 
+    d.department_name = 'AI&DS';
 
-CREATE TABLE departments (
-    department_id INT PRIMARY KEY,
-    department_name VARCHAR(100) NOT NULL
-);
+-- DICE: Filtering data for a specific course and grade (Introduction to AI, Grade A)
+SELECT 
+    fe.enrollment_id, 
+    st.student_name, 
+    c.course_name, 
+    fe.grade, 
+    fe.enrollment_date
+FROM 
+    fact_enrollments fe
+JOIN 
+    students st ON fe.student_id = st.student_id
+JOIN 
+    courses c ON fe.course_id = c.course_id
+WHERE 
+    c.course_name = 'Introduction to AI' 
+    AND fe.grade = 'A';
 
-CREATE TABLE students (
-    student_id INT PRIMARY KEY,
-    student_name VARCHAR(100) NOT NULL,
-    date_of_birth DATE NOT NULL,
-    gender CHAR(1) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    contact_number VARCHAR(15) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    department_id INT NOT NULL,
-    FOREIGN KEY (department_id) REFERENCES departments(department_id)
-);
+-- ROLLUP: Aggregating data by department and semester
+SELECT 
+    d.department_name, 
+    s.semester_name, 
+    COUNT(fe.enrollment_id) AS total_enrollments
+FROM 
+    fact_enrollments fe
+JOIN 
+    students st ON fe.student_id = st.student_id
+JOIN 
+    departments d ON st.department_id = d.department_id
+JOIN 
+    semesters s ON fe.semester_id = s.semester_id
+GROUP BY 
+    d.department_name, s.semester_name
+WITH ROLLUP;
 
-CREATE TABLE courses (
-    course_id INT PRIMARY KEY,
-    course_name VARCHAR(100) NOT NULL,
-    course_description TEXT NOT NULL,
-    credits INT NOT NULL,
-    department_id INT NOT NULL,
-    FOREIGN KEY (department_id) REFERENCES departments(department_id)
-);
+-- DRILLDOWN: Viewing detailed enrollment data for a specific semester (Fall 2023)
+SELECT 
+    fe.enrollment_id, 
+    st.student_name, 
+    c.course_name, 
+    i.instructor_name, 
+    s.semester_name, 
+    fe.grade
+FROM 
+    fact_enrollments fe
+JOIN 
+    students st ON fe.student_id = st.student_id
+JOIN 
+    courses c ON fe.course_id = c.course_id
+JOIN 
+    instructors i ON fe.instructor_id = i.instructor_id
+JOIN 
+    semesters s ON fe.semester_id = s.semester_id
+WHERE 
+    s.semester_name = 'Fall 2023';
 
-CREATE TABLE instructors (
-    instructor_id INT PRIMARY KEY,
-    instructor_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    department_id INT NOT NULL,
-    FOREIGN KEY (department_id) REFERENCES departments(department_id)
-);
-
-CREATE TABLE semesters (
-    semester_id INT PRIMARY KEY,
-    semester_name VARCHAR(50) NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL
-);
-
-CREATE TABLE fact_enrollments (
-    enrollment_id INT PRIMARY KEY,
-    student_id INT NOT NULL,
-    course_id INT NOT NULL,
-    instructor_id INT NOT NULL,
-    semester_id INT NOT NULL,
-    grade VARCHAR(2) NOT NULL,
-    enrollment_date DATE NOT NULL,
-    enrollment_time TIME NOT NULL,
-    FOREIGN KEY (student_id) REFERENCES students(student_id),
-    FOREIGN KEY (course_id) REFERENCES courses(course_id),
-    FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id),
-    FOREIGN KEY (semester_id) REFERENCES semesters(semester_id)
-);
-
-
-INSERT INTO departments (department_id, department_name) VALUES
-(1, 'AI&DS'),
-(2, 'COMPS'),
-(3, 'IT'),
-(4, 'IOT'),
-(5, 'EXTC');
-
--- Students
-INSERT INTO students (student_id, student_name, date_of_birth, gender, address, contact_number, email, department_id) VALUES
-(1, 'Alice Johnson', '2000-01-15', 'F', '123 Main St, Cityville', '123-456-7890', 'alice.johnson@acpce.ac.in', 1),
-(2, 'Bob Smith', '1999-06-23', 'M', '456 Elm St, Townsville', '987-654-3210', 'bob.smith@acpce.ac.in', 2),
-(3, 'Charlie Brown', '2001-08-30', 'M', '789 Oak St, Villagetown', '555-123-4567', 'charlie.brown@acpce.ac.in', 3);
-
--- Courses
-INSERT INTO courses (course_id, course_name, course_description, credits, department_id) VALUES
-(1, 'Introduction to AI', 'Basics of Artificial Intelligence', 4, 1),
-(2, 'Data Structures', 'Fundamentals of Data Structures', 3, 2),
-(3, 'Database Systems', 'Introduction to Database Systems', 3, 3);
-
-
-INSERT INTO instructors (instructor_id, instructor_name, email, department_id) VALUES
-(1, 'Dr. Sarah Lee', 'sarah.lee@acpce.ac.in', 1),
-(2, 'Prof. James Brown', 'james.brown@acpce.ac.in', 2),
-(3, 'Dr. Emily Davis', 'emily.davis@acpce.ac.in', 3);
-
-
-INSERT INTO semesters (semester_id, semester_name, start_date, end_date) VALUES
-(1, 'Fall 2023', '2023-08-01', '2023-12-15'),
-(2, 'Spring 2024', '2024-01-15', '2024-05-15');
-
-
-INSERT INTO fact_enrollments (enrollment_id, student_id, course_id, instructor_id, semester_id, grade, enrollment_date, enrollment_time) VALUES
-(1, 1, 1, 1, 1, 'A', '2023-08-05', '10:00:00'),
-(2, 2, 2, 2, 1, 'B+', '2023-08-10', '11:00:00'),
-(3, 3, 3, 3, 2, 'A-', '2024-01-20', '09:00:00');
-
-
-SELECT * FROM departments;
-
-
-SELECT * FROM students;
-
-
-SELECT * FROM courses;
-
--- Instructors Table
-SELECT * FROM instructors;
-
-
-SELECT * FROM semesters;
-
-
-SELECT * FROM fact_enrollments;
+-- PIVOT: Simulating a pivot table by converting rows into columns for grades
+SELECT 
+    d.department_name,
+    SUM(CASE WHEN fe.grade = 'A' THEN 1 ELSE 0 END) AS grade_A,
+    SUM(CASE WHEN fe.grade = 'B+' THEN 1 ELSE 0 END) AS grade_B_plus,
+    SUM(CASE WHEN fe.grade = 'A-' THEN 1 ELSE 0 END) AS grade_A_minus
+FROM 
+    fact_enrollments fe
+JOIN 
+    students st ON fe.student_id = st.student_id
+JOIN 
+    departments d ON st.department_id = d.department_id
+GROUP BY 
+    d.department_name;
