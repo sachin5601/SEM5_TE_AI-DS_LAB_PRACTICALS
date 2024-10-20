@@ -50,7 +50,7 @@ border-top-right-radius: 5px;
 width: 100%;
 min-height: 185px;
 position: relative;
-background:#91B3D1 url(https://image.freepik.com/free-vector/cyber-data-security-online-concept-illustration-internet-security-information-privacy-protection_1150-37330.jpg) no-repeat;
+background:#91B3D1 url(01.jpg) no-repeat;
 background-size: auto;
 background-position: center
 }
@@ -89,14 +89,14 @@ flex-wrap: wrap
 .login100-form-title
 {
 font-size: 25px;
-color: #243762;
+color: #fefdfd;
 line-height: 1.2;
 text-transform: uppercase;
 text-align: center;
 width: 100%;
 display: block
 }
-.login100-form-subtitle{font-size: 16px;color: #243762;line-height: 1.2;
+.login100-form-subtitle{font-size: 16px;color: #fefdfd;line-height: 1.2;
 text-align: center;width: 100%;display: block}.wrap-input100
 {
 position: relative;width: 100%;z-index: 1}#login input{outline: none;
