@@ -30,7 +30,7 @@ Each practical is organized into its own folder with:
 
 ## ⚙️ Tools & Technologies Used
 
-- **Languages**: Python, C++, JavaScript (as applicable)  
+- **Languages**: Python, HTML, CSS, JavaScript 
 - **Libraries**:  
   ![NumPy](https://img.shields.io/badge/-NumPy-013243?style=flat-square&logo=NumPy&logoColor=white) 
   ![Pandas](https://img.shields.io/badge/-Pandas-150458?style=flat-square&logo=Pandas&logoColor=white) 
