@@ -21,7 +21,7 @@ Each practical is organized into its own folder with:
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/sachin5601/SEM5_TE_AI-DS_LAB_PRACTICALS.git
    ```
 
 2. Navigate to the desired practical folder and explore.
@@ -39,7 +39,7 @@ Each practical is organized into its own folder with:
 
 - **IDEs**:  
   ![Jupyter Notebook](https://img.shields.io/badge/-Jupyter%20Notebook-F37626?style=flat-square&logo=Jupyter&logoColor=white) 
-  ![PyCharm](https://img.shields.io/badge/-PyCharm-000000?style=flat-square&logo=PyCharm&logoColor=white) 
+  ![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?style=flat-square&logo=google-colab&logoColor=white)
   ![Visual Studio Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white)
 
 ---
@@ -50,8 +50,7 @@ Each practical is organized into its own folder with:
 
 **Sachin Shinde**  
 - 🌟 **Artificial Intelligence & Data Science, Semester 5**  
-- 🆔 **PRN**: 221101014  
-- 📧 Email: sachinshinde@acpce.ac.in  
+- 📧 Email: eng.sachinshinde@gmail.com  
 
 ---
 
