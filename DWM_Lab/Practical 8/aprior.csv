@@ -1,0 +1,12 @@
+TID,item1,item2,item3,item4,item5
+T1,milk,bread,butter,eggs,cheese
+T2,bread,sugar,butter,jam,fruit
+T3,bread,butter,milk,eggs,fruit
+T4,milk,bread,sugar,eggs,cheese
+T5,milk,bread,butter,fruit,jam
+T6,milk,bread,butter,eggs,fruit
+T7,milk,sugar,jam,fruit,cheese
+T8,milk,sugar,butter,eggs,fruit
+T9,sugar,butter,jam,eggs,cheese
+T10,milk,sugar,butter,jam,fruit
+T11,milk,bread,butter,cheese,jam
